@@ -1,14 +1,13 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-
 import TutorCard from '@/components/modules/Tutor/TutoreCard';
 import { Tutor } from '@/types';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Star } from 'lucide-react';
 import Link from 'next/link';
 import { getTutorProfiles } from '@/services/TutorProfile.service';
 
-export default function TutorSection() {
+export default function TutoreHomeLayout() {
   const [tutors, setTutors] = useState<Tutor[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -28,56 +27,64 @@ export default function TutorSection() {
   }, []);
 
   return (
-    <section className="py-20 bg-white dark:bg-black overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* --- Header Section --- */}
+    <section className="py-16 sm:py-20 bg-gradient-to-b from-white to-purple-50/30 dark:from-black dark:to-purple-950/20 overflow-hidden">
+      <div className="container mx-auto px-4 lg:px-6">
+        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20">
-              <Sparkles size={14} className="text-blue-600" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 border border-purple-200 dark:border-purple-800">
+              <Sparkles size={14} className="text-purple-600" />
+              <span className="text-[10px] font-bold uppercase tracking-widest bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Top Rated Mentors
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-black dark:text-white">
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black dark:text-white leading-tight">
               Learn from the{' '}
-              <span className="text-blue-600">Best Professionals</span>
+              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Best Professionals
+              </span>
             </h2>
+
+            <p className="text-slate-500 dark:text-slate-400 max-w-lg text-sm sm:text-base">
+              Hand-picked expert tutors ready to guide you towards success
+            </p>
           </div>
 
           <Link
             href="/TutoreProfile"
-            className="group flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 transition-all"
+            className="group flex items-center gap-2 text-sm font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent relative"
           >
             View All Instructors
             <ArrowRight
               size={18}
-              className="transition-transform group-hover:translate-x-1"
+              className="transition-transform group-hover:translate-x-1 text-purple-600"
             />
           </Link>
         </div>
 
-        {/* --- Content Grid --- */}
+        {/* Content */}
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <SkeletonLoader />
             <SkeletonLoader />
             <SkeletonLoader />
           </div>
         ) : tutors.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {tutors.map(tutor => (
-              <div
-                key={tutor.id}
-                className="hover:scale-[1.02] transition-transform duration-500"
-              >
-                <TutorCard tutor={tutor} />
+              <div key={tutor.id} className="group relative ">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl opacity-0  blur transition duration-500" />
+                <div className="relative">
+                  <TutorCard tutor={tutor} />
+                </div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 border-2 border-dashed border-slate-100 dark:border-zinc-800 rounded-[32px]">
-            <p className="text-slate-400 font-medium">
+          <div className="text-center py-16 border-2 border-dashed border-purple-200 dark:border-purple-800/30 rounded-3xl">
+            <Star className="w-10 h-10 text-purple-400 mx-auto mb-4" />
+            <p className="text-purple-600 dark:text-purple-400 font-medium">
               No instructors available at the moment.
             </p>
           </div>
@@ -89,17 +96,13 @@ export default function TutorSection() {
 
 function SkeletonLoader() {
   return (
-    <div className="w-full h-[420px] rounded-[32px] bg-slate-50 dark:bg-zinc-900/50 border border-slate-100 dark:border-zinc-800 p-6 space-y-4 animate-pulse">
-      <div className="w-full h-48 rounded-2xl bg-slate-200 dark:bg-zinc-800" />
-      <div className="h-6 w-2/3 bg-slate-200 dark:bg-zinc-800 rounded-lg" />
-      <div className="h-4 w-full bg-slate-200 dark:bg-zinc-800 rounded-lg" />
+    <div className="w-full min-h-[360px] rounded-3xl bg-white dark:bg-zinc-900 border border-purple-100 dark:border-purple-800/20 p-5 sm:p-6 space-y-4 animate-pulse shadow-sm">
+      <div className="w-full h-40 rounded-xl bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30" />
+      <div className="h-5 w-2/3 bg-purple-100 dark:bg-purple-900/30 rounded-lg" />
+      <div className="h-4 w-full bg-purple-100 dark:bg-purple-900/30 rounded-lg" />
       <div className="flex gap-2">
-        <div className="h-8 w-20 bg-slate-200 dark:bg-zinc-800 rounded-full" />
-        <div className="h-8 w-20 bg-slate-200 dark:bg-zinc-800 rounded-full" />
-      </div>
-      <div className="pt-4 flex justify-between items-center">
-        <div className="h-10 w-24 bg-slate-200 dark:bg-zinc-800 rounded-xl" />
-        <div className="h-6 w-12 bg-slate-200 dark:bg-zinc-800 rounded-lg" />
+        <div className="h-8 w-20 bg-purple-100 dark:bg-purple-900/30 rounded-full" />
+        <div className="h-8 w-20 bg-purple-100 dark:bg-purple-900/30 rounded-full" />
       </div>
     </div>
   );
