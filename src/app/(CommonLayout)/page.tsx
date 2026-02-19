@@ -1,6 +1,6 @@
 import HeroSection from '@/components/layout/Hero';
 import CategorySection from '@/components/layout/Services';
-import AboutSection from '@/components/layout/Session';
+import AboutSection from '@/components/layout/AboutSection';
 import ServicesSection from '@/components/layout/ServicesSection';
 import TutorSection from '@/components/layout/TutorSection';
 
