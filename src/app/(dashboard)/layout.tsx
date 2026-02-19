@@ -46,14 +46,6 @@ export default async function DashboardLayout({
 
               <Breadcrumb className="hidden sm:block">
                 <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink
-                      href="/dashboard"
-                      className="text-[11px] font-bold text-purple-500 hover:text-purple-600 dark:hover:text-pink-400 uppercase tracking-widest transition-colors"
-                    >
-                      Home
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
                   <BreadcrumbSeparator className="text-purple-300 dark:text-pink-700" />
                   <BreadcrumbItem>
                     <BreadcrumbPage className="text-[11px] font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 uppercase tracking-widest">
