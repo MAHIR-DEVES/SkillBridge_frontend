@@ -1,10 +1,9 @@
-"use server"
+'use server';
 
-import { env } from "@/env";
-import { Tutor } from "@/types/Tutor.type";
-import { cookies } from "next/headers";
+import { Tutor } from '@/types/Tutor.type';
+import { cookies } from 'next/headers';
 
-const API_URL = env.NEXT_PUBLIC_API_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 // ✅ Types
 interface TutorApiResponse {
@@ -19,7 +18,6 @@ export interface TutorQueryParams {
   price?: number;
 }
 
-
 export const getMyProfile = async () => {
   try {
     const cookieStore = await cookies();
@@ -27,15 +25,15 @@ export const getMyProfile = async () => {
       headers: {
         Cookie: cookieStore.toString(),
       },
-      credentials: "include",
-      cache: "no-store",
+      credentials: 'include',
+      cache: 'no-store',
     });
 
     if (!res.ok) return null;
 
     return await res.json();
   } catch (err) {
-    console.error("getMyProfile error:", err);
+    console.error('getMyProfile error:', err);
     return null;
   }
 };
@@ -46,25 +44,28 @@ export const getMyProfile = async () => {
  * ফিল্টার অনুযায়ী একাধিক টিউটর প্রোফাইল ফেচ করার জন্য
  */
 export const getTutorProfiles = async (
-  params?: TutorQueryParams
+  params?: TutorQueryParams,
 ): Promise<{ data: TutorApiResponse | null; error: string | null }> => {
   try {
     const query = new URLSearchParams();
 
-    if (params?.id) query.append("id", params.id);
-    if (params?.search) query.append("search", params.search);
-    if (params?.categoryId) query.append("categoryId", params.categoryId);
-    if (params?.rating) query.append("rating", String(params.rating));
-    if (params?.price) query.append("price", String(params.price));
+    if (params?.id) query.append('id', params.id);
+    if (params?.search) query.append('search', params.search);
+    if (params?.categoryId) query.append('categoryId', params.categoryId);
+    if (params?.rating) query.append('rating', String(params.rating));
+    if (params?.price) query.append('price', String(params.price));
 
-    const res = await fetch(`${API_URL}/api/tutor/profile?${query.toString()}`, {
-      cache: "no-store",
-    });
+    const res = await fetch(
+      `${API_URL}/api/tutor/profile?${query.toString()}`,
+      {
+        cache: 'no-store',
+      },
+    );
     const data = await res.json();
     return { data, error: null };
   } catch (err) {
     console.error(err);
-    return { data: null, error: "Failed to fetch tutor profile" };
+    return { data: null, error: 'Failed to fetch tutor profile' };
   }
 };
 
@@ -78,21 +79,24 @@ export const getTutorById = async (id: string) => {
     return { data: data, error: null };
   } catch (err) {
     console.error(err);
-    return { data: null, error: { message: "Something Went Wrong" } };
+    return { data: null, error: { message: 'Something Went Wrong' } };
   }
 };
 
 /**
  * সব ক্যাটাগরি ফেচ করার জন্য
  */
-export const getCategories = async (): Promise<{ data: { id: string; name: string }[]; error: string | null }> => {
+export const getCategories = async (): Promise<{
+  data: { id: string; name: string }[];
+  error: string | null;
+}> => {
   try {
     const res = await fetch(`${API_URL}/api/categories`);
     const data = await res.json();
     return { data: data?.data ?? data ?? [], error: null };
   } catch (err) {
     console.error(err);
-    return { data: [], error: "Failed to fetch categories" };
+    return { data: [], error: 'Failed to fetch categories' };
   }
 };
 
@@ -102,12 +106,12 @@ export const getCategories = async (): Promise<{ data: { id: string; name: strin
 export const getAllTutorProfiles = async (): Promise<Tutor[]> => {
   try {
     const res = await fetch(`${API_URL}/api/tutor/profile`, {
-      cache: "no-store",
+      cache: 'no-store',
     });
     const result = await res.json();
     return result.data || result || [];
   } catch (err) {
-    console.error("getAllTutorProfiles error:", err);
+    console.error('getAllTutorProfiles error:', err);
     return [];
   }
 };
