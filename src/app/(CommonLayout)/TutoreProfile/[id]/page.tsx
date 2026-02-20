@@ -50,7 +50,7 @@ export default async function TutorProfile({
 
   return (
     <div className="min-h-screen mt-20 bg-gradient-to-b from-white to-pink-50 dark:from-black dark:via-purple-950/20 dark:to-pink-950/20 p-4 md:p-8 pt-24">
-      <div className="max-w-6xl mx-auto space-y-10">
+      <div className="container mx-auto px-4 lg:px-6  space-y-10">
         <Link
           href="/TutoreProfile"
           className="group inline-flex items-center gap-3 text-slate-400 hover:text-purple-600 dark:hover:text-pink-400 transition-colors font-black uppercase text-[10px] tracking-[3px]"
@@ -67,7 +67,7 @@ export default async function TutorProfile({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Left Column: Details */}
           <div className="lg:col-span-8 space-y-8">
-            <div className="bg-white/90 dark:bg-black/40 backdrop-blur-sm rounded-[45px] p-8 md:p-12 border border-purple-100 dark:border-purple-800/30 shadow-2xl shadow-purple-500/10 relative overflow-hidden">
+            <div className="bg-white/90 dark:bg-black/40 backdrop-blur-sm rounded-md p-8 md:p-12 border border-purple-100 dark:border-purple-800/30 shadow-2xl shadow-purple-500/10 relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-10">
                 <Zap
                   size={120}
@@ -114,7 +114,7 @@ export default async function TutorProfile({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Experience Card */}
-              <div className="bg-white/90 dark:bg-black/40 backdrop-blur-sm p-8 rounded-[35px] border border-purple-100 dark:border-purple-800/30 flex items-start gap-5 hover:shadow-xl hover:shadow-purple-500/10 transition-all group">
+              <div className="bg-white/90 dark:bg-black/40 backdrop-blur-sm p-8 rounded-md border border-purple-100 dark:border-purple-800/30 flex items-start gap-5 hover:shadow-xl hover:shadow-purple-500/10 transition-all group">
                 <div className="p-4 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl text-purple-600 dark:text-pink-400 group-hover:scale-110 transition-transform">
                   <Award size={28} />
                 </div>
@@ -129,7 +129,7 @@ export default async function TutorProfile({
               </div>
 
               {/* Rating Card */}
-              <div className="bg-white/90 dark:bg-black/40 backdrop-blur-sm p-8 rounded-[35px] border border-purple-100 dark:border-purple-800/30 flex items-start gap-5 hover:shadow-xl hover:shadow-purple-500/10 transition-all group">
+              <div className="bg-white/90 dark:bg-black/40 backdrop-blur-sm p-8 rounded-md border border-purple-100 dark:border-purple-800/30 flex items-start gap-5 hover:shadow-xl hover:shadow-purple-500/10 transition-all group">
                 <div className="p-4 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl text-purple-600 dark:text-pink-400 group-hover:scale-110 transition-transform">
                   <Star size={28} />
                 </div>
@@ -148,29 +148,11 @@ export default async function TutorProfile({
                 </div>
               </div>
             </div>
-
-            {/* Additional Info Section */}
-            <div className="bg-white/90 dark:bg-black/40 backdrop-blur-sm p-8 rounded-[35px] border border-purple-100 dark:border-purple-800/30">
-              <h3 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-4 flex items-center gap-2">
-                <Sparkles size={18} className="text-purple-500" />
-                Teaching Expertise
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {tutor.subjects?.map((subject: string, index: number) => (
-                  <span
-                    key={index}
-                    className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-full text-xs font-semibold text-purple-600 dark:text-pink-400 border border-purple-200 dark:border-purple-800"
-                  >
-                    {subject}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Right Column: Booking Widget */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="bg-gradient-to-br from-purple-600 to-pink-600 p-8 rounded-[40px] text-white shadow-2xl shadow-purple-500/30 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-purple-600 to-pink-600 p-8 rounded-md text-white shadow-2xl shadow-purple-500/30 relative overflow-hidden">
               {/* Decorative elements */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
               <div className="absolute bottom-0 left-0 w-40 h-40 bg-purple-800/20 rounded-full blur-3xl" />
@@ -200,10 +182,6 @@ export default async function TutorProfile({
                 </div>
 
                 <BookingCard tutorId={tutor.id} />
-
-                <p className="text-[10px] text-center mt-4 opacity-70">
-                  Free cancellation up to 24 hours before
-                </p>
               </div>
             </div>
           </div>

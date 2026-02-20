@@ -23,16 +23,19 @@ export interface Tutor {
   price: number;
   status: string;
   rating?: string | number;
-  bio?: string;      // Added from your first version
-  user: User;        // Relational Data (Must have)
+  bio?: string; // Added from your first version
+  user: User; // Relational Data (Must have)
   category: Category; // Relational Data (Must have)
+  location?: string;
+  totalStudents?: number;
+  totalReviews?: number;
 }
 
 // Slots & Booking Types
 export type SlotInput = {
-  date: string;       // YYYY-MM-DD
-  startTime: string;  // HH:mm
-  endTime: string;    // HH:mm
+  date: string; // YYYY-MM-DD
+  startTime: string; // HH:mm
+  endTime: string; // HH:mm
 };
 
 export type Slot = SlotInput & {
@@ -58,5 +61,3 @@ export type TutorBooking = {
   } | null;
   student: User; // Reusing the User interface here for consistency
 };
-
-

@@ -80,7 +80,7 @@ export default function TutorProfilePageClient(): JSX.Element {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-pink-50 dark:from-black dark:via-purple-950/20 dark:to-pink-950/20 transition-colors duration-500">
-      <div className="max-w-7xl mx-auto p-6 md:p-12 mt-20">
+      <div className="container mx-auto px-4 lg:px-6 md:p-12 mt-20">
         {/* --- HEADER SECTION with gradient --- */}
         <div className="mb-12 space-y-4">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 px-4 py-1.5 rounded-full border border-purple-200 dark:border-purple-800">
