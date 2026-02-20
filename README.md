@@ -1,60 +1,64 @@
 # 🚀 SkillBridge - Modern Online Tutoring Marketplace
 
-**SkillBridge** হলো একটি প্রিমিয়াম অনলাইন টিউটরিং প্ল্যাটফর্ম যেখানে ছাত্রছাত্রীরা বিশেষজ্ঞ শিক্ষকদের খুঁজে পায় এবং শিক্ষকরা তাদের দক্ষতা শেয়ার করার মাধ্যমে একটি প্রফেশনাল প্রোফাইল তৈরি করতে পারেন। এটি একটি ফুল-স্ট্যাক প্রজেক্ট যা আধুনিক ওয়েব টেকনোলজির সমন্বয়ে তৈরি।
+**SkillBridge** is a premium online tutoring platform where students can
+discover expert tutors, and tutors can build professional profiles to showcase
+their expertise.  
+This is a full-stack web application built using modern web technologies and
+best development practices.
 
 ---
 
 ## 🌐 Live Demo & Deployment
 
-| Resource | Link |
-| :--- | :--- |
-| **🌍 Frontend Live** | [View Live Site](https://skill-bridge-fontend-five.vercel.app/) |
-| **⚙️ Backend Live** | [API Documentation](https://skillbridgebackend.vercel.app/) |
-| **📺 Demo Video** | [Watch Preview on Google Drive](https://drive.google.com/file/d/1cRbOMZ-Rj8T1ulZkz6-A7K5TUkn-8adO/view?usp=sharing) |
+| Resource         | Link                                                                               |
+| :--------------- | :--------------------------------------------------------------------------------- |
+| 🌍 Frontend Live | https://skill-bridge-frontend-2zjl.vercel.app                                      |
+| ⚙️ Backend Live  | https://skill-bridge-backend-seven.vercel.app                                      |
+| 📺 Demo Video    | https://drive.google.com/file/d/1cRbOMZ-Rj8T1ulZkz6-A7K5TUkn-8adO/view?usp=sharing |
 
 ---
 
 ## ✨ Key Features
 
-- **💎 Premium Tutor Cards:** টিউটরদের জন্য আকর্ষণীয় এবং গ্লাস-মর্ফিজম ডিজাইনের প্রোফাইল কার্ড।
-- **🔍 Advanced Search & Filter:** ক্যাটাগরি, মূল্য এবং রেটিং অনুযায়ী স্মার্ট সার্চিং সিস্টেম।
-- **🔐 Secure Authentication:** Better Auth ব্যবহার করে সেশন-বেসড সিকিউর লগইন সিস্টেম।
-- **📊 Tutor Dashboard:** টিউটরদের জন্য প্রোফাইল আপডেট, সেশন ম্যানেজমেন্ট এবং বায়ো এডিট করার ক্ষমতা।
-- **⚡ Server Actions:** Next.js Server Actions ব্যবহার করে দ্রুত ডাটা মিউটেশন।
-- **📱 Fully Responsive:** মোবাইল, ট্যাবলেট এবং ডেস্কটপের জন্য ১০০% রেসপন্সিভ ইউজার ইন্টারফেস।
+- 💎 **Premium Tutor Cards** – Modern glassmorphism-style tutor profile cards.
+- 🔍 **Advanced Search & Filter** – Filter tutors by category, price, and
+  rating.
+- 🔐 **Secure Authentication** – Session-based authentication powered by Better
+  Auth.
+- 📊 **Tutor Dashboard** – Update profile, manage sessions, and edit bio.
+- ⚡ **Server Actions** – Optimized data mutations using Next.js Server Actions.
+- 📱 **Fully Responsive** – Works seamlessly on mobile, tablet, and desktop.
 
 ---
 
 ## 🛠 Tech Stack
 
+### Frontend
 
+- Next.js 15 (App Router)
+- Tailwind CSS
+- Shadcn/UI
+- TanStack Form
+- TanStack Table
+- Lucide React
+- Sonner
 
-### Frontend:
-- **Framework:** Next.js 15 (App Router)
-- **State Management:** TanStack Form & TanStack Table
-- **Styling:** Tailwind CSS & Shadcn/UI
-- **Icons:** Lucide React
-- **Toast:** Sonner
+### Backend
 
-### Backend:
-- **Framework:** Node.js & Express.js
-- **Database:** PostgreSQL (via Prisma ORM)
-- **Auth:** Better Auth
-- **Validation:** Zod
+- Node.js
+- Express.js
+- PostgreSQL
+- Prisma ORM
+- Better Auth
+- Zod
 
 ---
 
 ## 🔐 Admin Credentials (Test Access)
 
-প্ল্যাটফর্মের অ্যাডমিন ফিচারগুলো এক্সপ্লোর করার জন্য নিচের ডিটেইলস ব্যবহার করুন:
+To explore the admin features:
 
-> **Email:** `admin@gmail.com`  
-> **Password:** `Pa$$w0rd!`
+Email: `admin@gmail.com`  
+Password: `Pa$$w0rd!`
 
 ---
-
-## 🚀 Installation & Local Setup
-
-১. **প্রজেক্টটি ক্লোন করুন:**
-   ```bash
-   git clone [https://github.com/SojiburAsif/SkillBridge_fontend.git](https://github.com/SojiburAsif/SkillBridge_fontend.git)
