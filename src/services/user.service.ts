@@ -14,13 +14,16 @@ export const userService = {
         finalCookies = cookieStore.toString();
       }
 
-      const res = await fetch(`${process.env.AUTH_URL}/get-session`, {
-        headers: {
-          //  forwards
-          Cookie: finalCookies,
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_AUTH_URL}/get-session`,
+        {
+          headers: {
+            //  forwards
+            Cookie: finalCookies,
+          },
+          cache: 'no-store',
         },
-        cache: 'no-store',
-      });
+      );
 
       if (!res.ok) return { data: null, error: { message: 'Unauthorized' } };
 

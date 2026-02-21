@@ -2,8 +2,9 @@
 
 import { cookies } from 'next/headers';
 import { Slot } from './tutorSlot.service';
+import { env } from '@/env';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || process.env.API_URL;
+const API_URL = env.NEXT_PUBLIC_API_URL;
 
 export type BookingStatus = 'CONFIRMED' | 'CANCELLED' | 'PENDING' | 'COMPLETED';
 

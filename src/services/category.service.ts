@@ -22,6 +22,7 @@ export async function getAllCategories(): Promise<Category[]> {
     const data = await res.json();
 
     const finalData = data?.data || data?.categories || data || [];
+    console.log(finalData);
     return Array.isArray(finalData) ? finalData : [];
   } catch (err) {
     console.error('Category Fetch Error:', err);

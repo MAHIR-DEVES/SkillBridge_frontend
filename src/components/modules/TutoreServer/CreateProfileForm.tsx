@@ -2,10 +2,11 @@
 
 import { cookies } from 'next/headers';
 import { revalidatePath } from 'next/cache';
+import { env } from '@/env';
 
 export async function upsertTutorProfile(
   formData: FormData,
-  profileId?: string,
+  profileId?: string
 ) {
   const cookieStore = await cookies();
   const token = cookieStore.get('accessToken')?.value;
@@ -13,8 +14,8 @@ export async function upsertTutorProfile(
   const rawData = Object.fromEntries(formData);
 
   const url = profileId
-    ? `${process.env.API_URL}/api/tutor/profile/`
-    : `${process.env.API_URL}/api/tutor/profile`;
+    ? `${env.API_URL}/api/tutor/profile/`
+    : `${env.API_URL}/api/tutor/profile`;
 
   const response = await fetch(url, {
     method: profileId ? 'PUT' : 'POST',

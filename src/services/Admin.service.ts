@@ -23,7 +23,7 @@ export async function getAllUsers(): Promise<User[]> {
   if (!sessionToken) return [];
 
   try {
-    const res = await fetch(`${process.env.API_URL}/api/admin/users`, {
+    const res = await fetch(`${API_URL}/api/admin/users`, {
       headers: {
         Cookie: `better-auth.session_token=${sessionToken}`,
       },
@@ -45,7 +45,7 @@ export async function updateUserStatus(userId: string, status: string) {
 
   if (!sessionToken) throw new Error('No session token found');
 
-  const res = await fetch(`${process.env.API_URL}/api/admin/users/${userId}`, {
+  const res = await fetch(`${API_URL}/api/admin/users/${userId}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -78,15 +78,12 @@ export async function getAllStudentProfiles(): Promise<StudentProfile[]> {
   const cookieStore = await cookies();
 
   try {
-    const res = await fetch(
-      `${process.env.API_URL}/api/admin/student/Allprofile`,
-      {
-        headers: {
-          Cookie: cookieStore.toString(),
-        },
-        next: { revalidate: 0 },
+    const res = await fetch(`${API_URL}/api/admin/student/Allprofile`, {
+      headers: {
+        Cookie: cookieStore.toString(),
       },
-    );
+      next: { revalidate: 0 },
+    });
 
     if (!res.ok) return [];
 

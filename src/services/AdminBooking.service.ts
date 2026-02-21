@@ -38,7 +38,7 @@ export async function updateBookingStatus(bookingId: string, status: string) {
   const cookieStore = await cookies();
   const sessionToken = cookieStore.get('better-auth.session_token')?.value;
 
-  const res = await fetch(`${process.env.API_URL}/api/bookings/${bookingId}`, {
+  const res = await fetch(`${API_URL}/api/bookings/${bookingId}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -51,8 +51,6 @@ export async function updateBookingStatus(bookingId: string, status: string) {
 
 // টিউটর প্রোফাইল এবং স্লট ফেচ করার জন্য (Client-side use এর জন্য API route ব্যবহার করা ভালো, তবে এখানে সরাসরি দেখাচ্ছি)
 export async function getTutorProfile(tutorId: string) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/tutor/profile/${tutorId}`,
-  );
+  const res = await fetch(`${API_URL}/api/tutor/profile/${tutorId}`);
   return res.json();
 }
