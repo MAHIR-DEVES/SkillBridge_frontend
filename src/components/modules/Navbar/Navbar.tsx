@@ -56,7 +56,7 @@ interface NavbarProps {
 
 const Navbar = ({
   session,
-  logo = { url: '/', title: 'SkillBridge' },
+  logo = { url: '/', title: 'TutorLink' },
   menu = [
     { title: 'Home', url: '/' },
     { title: 'Browse Tutors', url: '/TutoreProfile' },

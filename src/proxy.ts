@@ -73,7 +73,7 @@ export const config = {
   matcher: [
     '/student-dashboard/:path*',
     '/tutor-dashboard/:path*',
-    // "/admin-dashboard/:path*",
+    '/admin-dashboard/:path*',
     '/logout',
   ],
 };
